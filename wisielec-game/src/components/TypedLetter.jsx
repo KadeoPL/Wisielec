@@ -1,4 +1,4 @@
-export default function Letter({letter}) {
+export default function TypedLetter({letter}) {
     
     return (
         <> 

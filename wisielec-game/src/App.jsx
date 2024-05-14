@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Letter from "./components/letter"
+import TypedLetterList from "./components/TypedLettersList";
 
 function App() {
   const [letters, setLetters] = useState([]);
@@ -11,13 +11,8 @@ function App() {
 
   return (
     <>
-
       <button onClick={handleAddLetter}>Ok</button>
-      <div>
-        {letters.map((letter, index) => (
-          <Letter key={index} letter={letter}></Letter>
-        ))}
-      </div>
+      <TypedLetterList letters={letters} />
     </>
   )
 }
