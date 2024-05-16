@@ -5,14 +5,13 @@ import TypeLetterForm from "./components/TypeLetterForm";
 function App() {
   const [letters, setLetters] = useState([]);
 
-  const handleAddLetter = () => {
-    const newLetter = 'P';
-    setLetters(prevLetters => [...prevLetters, newLetter]);
+  function handleAddLetter(letter) {
+      setLetters(prevLetters => [...prevLetters, letter]);
   }
 
   return (
     <>
-      <TypeLetterForm />
+      <TypeLetterForm onAddLetter={handleAddLetter}/>
       <TypedLetterList letters={letters} />
     </>
   )
