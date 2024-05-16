@@ -1,13 +1,17 @@
+import { useRef } from "react";
+
 export default function TypeLetterForm () {
-    function handleSubmit (){
-        
+    const letter = useRef();
+    
+    function handleSubmit (event){
+        event.preventDefault();
     }
     
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <p>
                 <label>Guess the letter!</label>
-                <input type="text" />
+                <input type="text" ref={letter}/>
             </p>
             <p>
                 <button>OK</button>

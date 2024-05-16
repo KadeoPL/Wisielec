@@ -1,5 +1,6 @@
 import { useState } from "react"
 import TypedLetterList from "./components/TypedLettersList";
+import TypeLetterForm from "./components/TypeLetterForm";
 
 function App() {
   const [letters, setLetters] = useState([]);
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <>
-      <button onClick={handleAddLetter}>Ok</button>
+      <TypeLetterForm />
       <TypedLetterList letters={letters} />
     </>
   )
