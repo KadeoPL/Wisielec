@@ -5,8 +5,6 @@
         {word: 'Mouse', category: 'Information technology'}
     ];
 
-    const randomIndex = Math.floor(Math.random() * wordsArray.length);
-
     export function getRandomWord(){
         const randomIndex = Math.floor(Math.random() * wordsArray.length);
         return wordsArray[randomIndex];
