@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import TypedLetterList from "./components/TypedLettersList";
 import TypeLetterForm from "./components/TypeLetterForm";
 import { getRandomWord } from "./components/WordSelector";
+import { checkLetterInWord } from "./components/checkLetterInWord";
 
 function App() {
   const [letters, setLetters] = useState([]);
@@ -15,7 +16,7 @@ function App() {
   }, [])
 
   function handleAddLetter(letter) {
-      setLetters(prevLetters => [...prevLetters, letter]);
+    setLetters(prevLetters => [...prevLetters, letter]);
   }
 
   function handleGenerateWord(){
@@ -39,7 +40,7 @@ function App() {
         <p>{maskedWord}</p>
         <p>{randomWord.category}</p>
       </div>
-      <TypeLetterForm onAddLetter={handleAddLetter}/>
+      <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word}/>
       <p>Typed letters:</p>
       <TypedLetterList letters={letters} />
       <button onClick={handleGenerateWord}>Generate new word</button>
