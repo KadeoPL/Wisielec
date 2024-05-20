@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Poetsen One", sans-serif;
 }
 
 .typed_letter {
@@ -11,4 +14,12 @@
 .typed_letter > * {
     justify-content: center;
     margin-left: 10px;
+}
+
+.correct {
+    color: green;
+}
+  
+.incorrect {
+    color: red;
 }

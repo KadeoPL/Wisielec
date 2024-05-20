@@ -16,7 +16,8 @@ function App() {
   }, [])
 
   function handleAddLetter(letter) {
-    setLetters(prevLetters => [...prevLetters, letter]);
+    const newLetter = { char: letter, className: randomWord.word.includes(letter) ? 'correct' : 'incorrect' };
+    setLetters(prevLetters => [...prevLetters, newLetter]);
     checkLetterInWordAndUpdateMask(letter);
   }
 
@@ -39,13 +40,12 @@ function App() {
     if (randomWord.word.includes(letter)) {
       const newMaskedWord = randomWord.word
         .split('')
-        .map((char) => (letters.includes(char) || char === letter ? char : '*'))
+        .map((char) => (letters.map(l => l.char).includes(char) || char === letter ? char : '*'))
         .join('');
       setMaskedWord(newMaskedWord);
-    } else {
-      console.log('The letter is not in the word');
     }
   }
+  
 
   return (
     <>
@@ -56,7 +56,7 @@ function App() {
       </div>
       <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word}/>
       <p>Typed letters:</p>
-      <TypedLetterList letters={letters} />
+      <TypedLetterList letters={letters}/>
       <button onClick={handleGenerateWord}>Generate new word</button>
     </>
   )

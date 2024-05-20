@@ -1,8 +1,8 @@
-export default function TypedLetter({letter}) {
+export default function TypedLetter({letter, className}) {
     
     return (
         <> 
-            <h1>{letter}</h1>
+            <p className={className}>{letter}</p>
         </>
     )
 }
