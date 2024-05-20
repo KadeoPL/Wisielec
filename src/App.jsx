@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import TypedLetterList from "./components/TypedLettersList";
 import TypeLetterForm from "./components/TypeLetterForm";
 import { getRandomWord } from "./components/WordSelector";
+import './index.css';
 
 function App() {
   const [letters, setLetters] = useState([]);
@@ -41,6 +42,8 @@ function App() {
         .map((char) => (letters.includes(char) || char === letter ? char : '*'))
         .join('');
       setMaskedWord(newMaskedWord);
+    } else {
+      console.log('The letter is not in the word');
     }
   }
 

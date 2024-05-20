@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.typed_letter {
+    display: flex;
+}
+
+.typed_letter > * {
+    justify-content: center;
+    margin-left: 10px;
+}
