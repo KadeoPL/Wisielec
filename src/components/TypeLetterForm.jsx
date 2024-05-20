@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { checkLetterInWord } from "./checkLetterInWord";
 
 export default function TypeLetterForm ({onAddLetter, randomWord}) {
     const [enteredLetter, setEnteredLetter] = useState('')
@@ -19,7 +18,6 @@ export default function TypeLetterForm ({onAddLetter, randomWord}) {
             onAddLetter(enteredLetter);
             setEnteredLetter('');
             setError('');
-            checkLetterInWord(randomWord, enteredLetter)
 
           } else if(enteredLetter.length === 0){
             setError('The field cannot be empty');

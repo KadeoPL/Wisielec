@@ -16,12 +16,14 @@ function App() {
 
   function handleAddLetter(letter) {
     setLetters(prevLetters => [...prevLetters, letter]);
+    checkLetterInWordAndUpdateMask(letter);
   }
 
   function handleGenerateWord(){
     const newRandomWord = getRandomWord();
     setRandomWord(newRandomWord);
     setMaskedWord(maskWord(newRandomWord.word));
+    setLetters([]);
   }
 
   function maskWord(wordToMask){
@@ -30,6 +32,16 @@ function App() {
       anonymizeWord += '*';
     }
     return anonymizeWord;
+  }
+
+  function checkLetterInWordAndUpdateMask(letter) {
+    if (randomWord.word.includes(letter)) {
+      const newMaskedWord = randomWord.word
+        .split('')
+        .map((char) => (letters.includes(char) || char === letter ? char : '*'))
+        .join('');
+      setMaskedWord(newMaskedWord);
+    }
   }
 
   return (
