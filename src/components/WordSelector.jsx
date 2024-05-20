@@ -7,5 +7,7 @@
 
     export function getRandomWord(){
         const randomIndex = Math.floor(Math.random() * wordsArray.length);
-        return wordsArray[randomIndex];
+        const randomWord = {... wordsArray[randomIndex]};
+        randomWord.word = randomWord.word.toUpperCase();
+        return randomWord;
     }

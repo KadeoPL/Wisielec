@@ -8,7 +8,7 @@ export default function TypeLetterForm ({onAddLetter, randomWord}) {
     function handleSubmit (event){
         event.preventDefault();
         
-        if (/^[a-zA-Z]$/.test(enteredLetter)) {
+        if (/^[A-Z]$/.test(enteredLetter)) {
             onAddLetter(enteredLetter);
             setEnteredLetter('');
             setError('');
@@ -29,7 +29,7 @@ export default function TypeLetterForm ({onAddLetter, randomWord}) {
                 <input
                     type="text"
                     value={enteredLetter}
-                    onChange={(event) => setEnteredLetter(event.target.value)}
+                    onChange={(event) => setEnteredLetter(event.target.value.toUpperCase())}
                     maxLength={1}
                 />
             </p>
