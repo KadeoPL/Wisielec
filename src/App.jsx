@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import TypedLetterList from "./components/TypedLettersList";
 import TypeLetterForm from "./components/TypeLetterForm";
 import { getRandomWord } from "./components/WordSelector";
-import { checkLetterInWord } from "./components/checkLetterInWord";
 
 function App() {
   const [letters, setLetters] = useState([]);

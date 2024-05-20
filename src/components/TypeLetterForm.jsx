@@ -4,15 +4,23 @@ import { checkLetterInWord } from "./checkLetterInWord";
 export default function TypeLetterForm ({onAddLetter, randomWord}) {
     const [enteredLetter, setEnteredLetter] = useState('')
     const [error, setError] = useState('')
+    const [typedLetterArray, setTypedLetterArray] = useState([]);
     
     function handleSubmit (event){
         event.preventDefault();
         
         if (/^[A-Z]$/.test(enteredLetter)) {
+            
+            if (typedLetterArray.includes(enteredLetter)) {
+                setError('The letter has already been entered');
+                return;
+            }
+            setTypedLetterArray([...typedLetterArray, enteredLetter]);
             onAddLetter(enteredLetter);
             setEnteredLetter('');
             setError('');
             checkLetterInWord(randomWord, enteredLetter)
+
           } else if(enteredLetter.length === 0){
             setError('The field cannot be empty');
           } else if (enteredLetter.length > 1){
