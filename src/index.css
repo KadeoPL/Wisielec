@@ -1,12 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Poetsen One", sans-serif;
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-family: "Nunito", sans-serif;
+    font-size: 10px;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .typed_letter {
@@ -31,4 +37,12 @@
     height: 10px;
     background-color: red;
     border-radius: 100px;
+}
+
+input {
+    aspect-ratio: 1/1;
+    width: 50px;
+    text-align: center;
+    font-size: 2.4em;
+    font-weight: 900;
 }

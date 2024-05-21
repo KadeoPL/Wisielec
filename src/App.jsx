@@ -66,17 +66,19 @@ function App() {
   }, [lives]);
   
   return (
-    <>
-      <div>
-        <p>{maskedWord}</p>
-        <p>Hint: {randomWord.hint}</p>
+    <div className="container">
+      <div className='game'>
+        <div>
+          <p>{maskedWord}</p>
+          <p>Hint: {randomWord.hint}</p>
+        </div>
+        <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word} />
+        <p>Typed letters:</p>
+        <TypedLetterList letters={letters}/>
+        <button onClick={startNewGame}>Generate new word</button>
+        <Lives lives={lives}/>
       </div>
-      <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word} />
-      <p>Typed letters:</p>
-      <TypedLetterList letters={letters}/>
-      <button onClick={startNewGame}>Generate new word</button>
-      <Lives lives={lives}/>
-    </>
+    </div>
   )
 }
 
