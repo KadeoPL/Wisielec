@@ -1,6 +1,6 @@
 import TypedLetter from "./TypedLetter.jsx";
 
-export default function TypedLetterList({ letters }) {
+export default function TypedLetterList({letters}) {
   return (
     <div className="typed_letter">
       {letters.map((letter, index) => (

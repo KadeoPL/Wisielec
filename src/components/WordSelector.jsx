@@ -1,9 +1,15 @@
-    export const wordsArray = [
-        {word: 'Computer', category: 'Information technology'},
-        {word: 'Phone', category: 'Phone technology'},
-        {word: 'Keyboard', category: 'Information technology'},
-        {word: 'Mouse', category: 'Information technology'}
-    ];
+const wordsArray = [
+    {word: 'Computer', hint: 'An electronic device for processing data'},
+    {word: 'Phone', hint: 'A communication device'},
+    {word: 'Keyboard', hint: 'An input device for typing characters'},
+    {word: 'Mouse', hint: 'An input device for pointing and clicking'},
+    {word: 'Laptop', hint: 'A portable computer'},
+    {word: 'Television', hint: 'An electronic device for watching broadcasts'},
+    {word: 'Headphones', hint: 'An audio output device worn on the head'},
+    {word: 'Tablet', hint: 'A portable touch-screen device'},
+    {word: 'Printer', hint: 'A device for producing hard copies of digital documents'},
+    {word: 'Smartwatch', hint: 'A wearable device with computing capabilities'}
+];
 
     export function getRandomWord(){
         const randomIndex = Math.floor(Math.random() * wordsArray.length);

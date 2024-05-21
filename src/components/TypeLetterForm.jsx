@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function TypeLetterForm ({onAddLetter, randomWord}) {
+export default function TypeLetterForm ({onAddLetter, randomWord, clearTypedLetters}) {
     const [enteredLetter, setEnteredLetter] = useState('')
     const [error, setError] = useState('')
     const [typedLetterArray, setTypedLetterArray] = useState([]);
+
+    useEffect(() => {
+        setTypedLetterArray([]);
+    }, [randomWord]);
     
     function handleSubmit (event){
         event.preventDefault();
@@ -14,7 +18,7 @@ export default function TypeLetterForm ({onAddLetter, randomWord}) {
                 setError('The letter has already been entered');
                 return;
             }
-            setTypedLetterArray([...typedLetterArray, enteredLetter]);
+            setTypedLetterArray(prevTypedLetters => [...prevTypedLetters, enteredLetter]);
             onAddLetter(enteredLetter);
             setEnteredLetter('');
             setError('');
@@ -27,7 +31,7 @@ export default function TypeLetterForm ({onAddLetter, randomWord}) {
             setError('The character you enter must be a letter');
           }
         }
-    
+
     return (
         <form onSubmit={handleSubmit}>
             <p>

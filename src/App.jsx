@@ -54,6 +54,7 @@ function App() {
 
       if (!newMaskedWord.includes('*')) {
         alert('You win!');
+        startNewGame();
     }}
   }
 
@@ -67,11 +68,10 @@ function App() {
   return (
     <>
       <div>
-        <p>{randomWord.word}</p>
         <p>{maskedWord}</p>
-        <p>{randomWord.category}</p>
+        <p>Hint: {randomWord.hint}</p>
       </div>
-      <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word}/>
+      <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word} />
       <p>Typed letters:</p>
       <TypedLetterList letters={letters}/>
       <button onClick={startNewGame}>Generate new word</button>
