@@ -3,29 +3,37 @@ import TypedLetterList from "./components/TypedLettersList";
 import TypeLetterForm from "./components/TypeLetterForm";
 import { getRandomWord } from "./components/WordSelector";
 import './index.css';
+import Lives from "./components/Lives";
 
 function App() {
   const [letters, setLetters] = useState([]);
   const [randomWord, setRandomWord] = useState('');
   const [maskedWord, setMaskedWord] = useState('');
+  const [lives, setLives] = useState(3);
 
   useEffect(() => {
-    const newRandomWord = getRandomWord();
-    setRandomWord(newRandomWord);
-    setMaskedWord(maskWord(newRandomWord.word));
+    startNewGame();
   }, [])
 
-  function handleAddLetter(letter) {
-    const newLetter = { char: letter, className: randomWord.word.includes(letter) ? 'correct' : 'incorrect' };
-    setLetters(prevLetters => [...prevLetters, newLetter]);
-    checkLetterInWordAndUpdateMask(letter);
-  }
-
-  function handleGenerateWord(){
+  function startNewGame(){
     const newRandomWord = getRandomWord();
     setRandomWord(newRandomWord);
     setMaskedWord(maskWord(newRandomWord.word));
     setLetters([]);
+    setLives(3);
+  }
+
+  function handleAddLetter(letter) {
+    const newLetter = {char: letter, className: ''};
+    setLetters(prevLetters => [...prevLetters, newLetter]);
+    
+    if(randomWord.word.includes(letter)){
+      newLetter.className = 'correct';
+      checkLetterInWordAndUpdateMask(letter);
+    } else {
+      newLetter.className = 'incorrect';
+      setLives(prevLives => prevLives - 1);
+    }
   }
 
   function maskWord(wordToMask){
@@ -43,10 +51,19 @@ function App() {
         .map((char) => (letters.map(l => l.char).includes(char) || char === letter ? char : '*'))
         .join('');
       setMaskedWord(newMaskedWord);
-    }
-  }
-  
 
+      if (!newMaskedWord.includes('*')) {
+        alert('You win!');
+    }}
+  }
+
+  useEffect(() => {
+    if (lives === 0) {
+      alert('You lose! Try again!');
+      startNewGame();
+    }
+  }, [lives]);
+  
   return (
     <>
       <div>
@@ -57,7 +74,8 @@ function App() {
       <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word}/>
       <p>Typed letters:</p>
       <TypedLetterList letters={letters}/>
-      <button onClick={handleGenerateWord}>Generate new word</button>
+      <button onClick={startNewGame}>Generate new word</button>
+      <Lives lives={lives}/>
     </>
   )
 }
