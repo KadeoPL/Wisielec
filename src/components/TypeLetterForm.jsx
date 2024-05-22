@@ -33,20 +33,17 @@ export default function TypeLetterForm ({onAddLetter, randomWord, clearTypedLett
         }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <p>
-                <label>Guess the letter!</label>
-                <input
+        <div className="form">
+            <form onSubmit={handleSubmit}>
+            <input
                     type="text"
                     value={enteredLetter}
                     onChange={(event) => setEnteredLetter(event.target.value.toUpperCase())}
                     maxLength={1}
                 />
-            </p>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-            <p>
                 <button type="submit">OK</button>
-            </p>
-        </form>
+            </form>
+        </div>
     )   
 }

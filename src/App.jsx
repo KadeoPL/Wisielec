@@ -69,11 +69,11 @@ function App() {
     <div className="container">
       <div className='game'>
         <div>
-          <p>{maskedWord}</p>
-          <p>Hint: {randomWord.hint}</p>
+          <p className='masked-text'>{maskedWord}</p>
+          <p className='hint-text'>Hint: {randomWord.hint}</p>
         </div>
         <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word} />
-        <p>Typed letters:</p>
+        <p className="description">Typed letters:</p>
         <TypedLetterList letters={letters}/>
         <button onClick={startNewGame}>Generate new word</button>
         <Lives lives={lives}/>
