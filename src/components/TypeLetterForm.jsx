@@ -33,17 +33,18 @@ export default function TypeLetterForm ({onAddLetter, randomWord, clearTypedLett
         }
 
     return (
-        <div className="form">
-            <form onSubmit={handleSubmit}>
-            <input
-                    type="text"
-                    value={enteredLetter}
-                    onChange={(event) => setEnteredLetter(event.target.value.toUpperCase())}
-                    maxLength={1}
-                />
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                <button type="submit">OK</button>
-            </form>
-        </div>
+        <div className="typed-letter-section">
+            <div className="form">
+                <form onSubmit={handleSubmit}>
+                <input
+                        type="text"
+                        value={enteredLetter}
+                        onChange={(event) => setEnteredLetter(event.target.value.toUpperCase())}
+                        maxLength={1}
+                    />
+                </form>
+            </div>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+        </div>    
     )   
 }

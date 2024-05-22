@@ -83,3 +83,9 @@ button {
     margin-top: 3.5rem;
 }
 
+.typed-letter-section > p {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
