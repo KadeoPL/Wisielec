@@ -26,11 +26,19 @@
 }
 
 .correct {
+    display: inline-block;
     color: green;
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-left: 1rem;
 }
   
 .incorrect {
+    display: inline-block;
     color: red;
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-left: 1rem;
 }
 
 .heart {
@@ -83,9 +91,49 @@ button {
     margin-top: 3.5rem;
 }
 
-.typed-letter-section > p {
+.enter-letter-section > p {
     font-size: 1.6rem;
     text-align: center;
     margin-top: 1rem;
 }
+
+.typed-letters-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5.5rem;
+}
+
+.typed-letters {
+    font-size: 1.6rem;
+    color: white;
+}
+
+.typed_letter > p{
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.button-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+}
+.heart-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+}
+
+.heart-section > div {
+    margin-left: 1rem;
+}
+
+.heart-section:last-child{
+    margin-left: 0;
+}
+
+
+
+
 

@@ -73,9 +73,13 @@ function App() {
           <p className='hint-text'>Hint: {randomWord.hint}</p>
         </div>
         <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word} />
-        <p className="description">Typed letters:</p>
-        <TypedLetterList letters={letters}/>
-        <button onClick={startNewGame}>Generate new word</button>
+        <div className="typed-letters-section">
+          <p className="typed-letters">Typed letters:</p>
+          <TypedLetterList letters={letters}/>
+        </div>
+        <div className="button-section">
+          <button onClick={startNewGame}>Generate new word</button>
+        </div>
         <Lives lives={lives}/>
       </div>
     </div>

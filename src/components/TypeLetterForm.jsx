@@ -33,7 +33,7 @@ export default function TypeLetterForm ({onAddLetter, randomWord, clearTypedLett
         }
 
     return (
-        <div className="typed-letter-section">
+        <div className="enter-letter-section">
             <div className="form">
                 <form onSubmit={handleSubmit}>
                 <input
