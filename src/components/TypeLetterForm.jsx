@@ -10,13 +10,6 @@ export default function TypeLetterForm ({onAddLetter, randomWord, isWrongLetter}
         setTypedLetterArray([]);
     }, [randomWord]);
 
-    /*useEffect(() => {
-        if (inputClass) {
-            const timeout = setTimeout(() => setInputClass(''), 5000);
-            return () => clearTimeout(timeout);
-        }
-    }, [inputClass]);*/
-
     useEffect(() => {
         if (isWrongLetter) {
             setShakeAnimation();
@@ -25,7 +18,7 @@ export default function TypeLetterForm ({onAddLetter, randomWord, isWrongLetter}
 
     function handleSubmit (event){
         event.preventDefault();
-        
+
         if (/^[A-Z]$/.test(enteredLetter)) {
             
             if (typedLetterArray.includes(enteredLetter)) {
