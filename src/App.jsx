@@ -39,7 +39,7 @@ function App() {
   function maskWord(wordToMask){
     let anonymizeWord = '';
     for (let i = 0; i< wordToMask.length; i++) {
-      anonymizeWord += '*';
+      anonymizeWord += '_';
     }
     return anonymizeWord;
   }
@@ -48,19 +48,19 @@ function App() {
     if (randomWord.word.includes(letter)) {
       const newMaskedWord = randomWord.word
         .split('')
-        .map((char) => (letters.map(l => l.char).includes(char) || char === letter ? char : '*'))
+        .map((char) => (letters.map(l => l.char).includes(char) || char === letter ? char : '_'))
         .join('');
       setMaskedWord(newMaskedWord);
 
-      if (!newMaskedWord.includes('*')) {
-        alert('You win!');
+      if (!newMaskedWord.includes('_')) {
+        alert(`You win! The word is: ${randomWord.word}`);
         startNewGame();
     }}
   }
 
   useEffect(() => {
     if (lives === 0) {
-      alert('You lose! Try again!');
+      alert(`You lose! Try again! The word is: ${randomWord.word}`);
       startNewGame();
     }
   }, [lives]);
@@ -69,6 +69,7 @@ function App() {
     <div className="container">
       <div className='game'>
         <div>
+          <p className='title-text'>Guess the letter!</p>
           <p className='masked-text'>{maskedWord}</p>
           <p className='hint-text'>Hint: {randomWord.hint}</p>
         </div>

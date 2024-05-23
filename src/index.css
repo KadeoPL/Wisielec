@@ -133,6 +133,14 @@ button {
     margin-left: 0;
 }
 
+.title-text {
+    font-size: 3.6rem;
+    color: white;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
 
 
 
