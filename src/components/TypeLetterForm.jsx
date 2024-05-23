@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import 'animate.css';
 
-export default function TypeLetterForm ({onAddLetter, randomWord}) {
+export default function TypeLetterForm ({onAddLetter, randomWord, isWrongLetter}) {
     const [enteredLetter, setEnteredLetter] = useState('')
     const [error, setError] = useState('')
     const [typedLetterArray, setTypedLetterArray] = useState([]);
@@ -10,7 +9,20 @@ export default function TypeLetterForm ({onAddLetter, randomWord}) {
     useEffect(() => {
         setTypedLetterArray([]);
     }, [randomWord]);
-    
+
+    /*useEffect(() => {
+        if (inputClass) {
+            const timeout = setTimeout(() => setInputClass(''), 5000);
+            return () => clearTimeout(timeout);
+        }
+    }, [inputClass]);*/
+
+    useEffect(() => {
+        if (isWrongLetter) {
+            setShakeAnimation();
+        }
+    }, [isWrongLetter]);
+
     function handleSubmit (event){
         event.preventDefault();
         
@@ -18,7 +30,6 @@ export default function TypeLetterForm ({onAddLetter, randomWord}) {
             
             if (typedLetterArray.includes(enteredLetter)) {
                 setError('The letter has already been entered');
-                setShakeAnimation();
                 return;
             }
             setTypedLetterArray(prevTypedLetters => [...prevTypedLetters, enteredLetter]);
@@ -28,22 +39,15 @@ export default function TypeLetterForm ({onAddLetter, randomWord}) {
 
           } else if(enteredLetter.length === 0){
             setError('The field cannot be empty');
-            setShakeAnimation();
           } else if (enteredLetter.length > 1){
             setError('Only a single letter is allowed');
-            setShakeAnimation();
           }else {
             setError('The character you enter must be a letter');
-            setShakeAnimation();
           }
         }
-    
     function setShakeAnimation() {
         setInputClass('animate__animated animate__shakeX');
-        setTimeout(() => {
-            setInputClass('');
-            }, 1000);
-          }
+    }
 
     return (
         <div className="enter-letter-section">

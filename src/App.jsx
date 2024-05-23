@@ -4,12 +4,14 @@ import TypeLetterForm from "./components/TypeLetterForm";
 import { getRandomWord } from "./components/WordSelector";
 import Lives from "./components/Lives";
 import './index.css';
+import 'animate.css';
 
 function App() {
   const [letters, setLetters] = useState([]);
   const [randomWord, setRandomWord] = useState('');
   const [maskedWord, setMaskedWord] = useState('');
   const [lives, setLives] = useState(3);
+  let isWrongLetter = false;
 
   useEffect(() => {
     startNewGame();
@@ -33,6 +35,7 @@ function App() {
     } else {
       newLetter.className = 'incorrect';
       setLives(prevLives => prevLives - 1);
+      isWrongLetter = true;
     }
   }
 
@@ -73,7 +76,7 @@ function App() {
           <p className='masked-text'>{maskedWord}</p>
           <p className='hint-text'>Hint: {randomWord.hint}</p>
         </div>
-        <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word} />
+        <TypeLetterForm onAddLetter={handleAddLetter} randomWord={randomWord.word} isWrongLetter={isWrongLetter} />
         <div className="typed-letters-section">
           <p className="typed-letters">Typed letters:</p>
           <TypedLetterList letters={letters}/>
