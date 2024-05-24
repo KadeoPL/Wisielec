@@ -13,14 +13,14 @@ function App() {
   const [lives, setLives] = useState(3);
   let isWrongLetter = false;
 
-  useEffect(() => {
+  /*useEffect(() => {
     startNewGame();
-  }, [])
+  }, [])*/
 
   function startNewGame(){
     const newRandomWord = getRandomWord();
     setRandomWord(newRandomWord);
-    setMaskedWord(maskWord(newRandomWord.word));
+    //setMaskedWord(maskWord(newRandomWord.word));
     setLetters([]);
     setLives(3);
   }
@@ -39,15 +39,14 @@ function App() {
     }
   }
 
-  function maskWord(wordToMask){
+  /*function maskWord(wordToMask){
     let anonymizeWord = '';
     for (let i = 0; i< wordToMask.length; i++) {
       anonymizeWord += '_';
     }
-    return anonymizeWord;
-  }
+  }*/
 
-  function checkLetterInWordAndUpdateMask(letter) {
+  /*function checkLetterInWordAndUpdateMask(letter) {
     if (randomWord.word.includes(letter)) {
       const newMaskedWord = randomWord.word
         .split('')
@@ -59,6 +58,15 @@ function App() {
         alert(`You win! The word is: ${randomWord.word}`);
         startNewGame();
     }}
+  }*/
+
+  function checkLetterInWord(word){
+    const randomWordArray = word.split('');
+  }
+
+  function maskWord (wordArray){
+    const newMaskedWordArray = [];
+      wordArray.map((char) => newMaskedWordArray.push((char === char.keyCode ? char.keyCode : '_')));
   }
 
   useEffect(() => {
