@@ -4,25 +4,27 @@ export default function TypeLetterForm ({onAddLetter, randomWord, isWrongLetter}
     const [enteredLetter, setEnteredLetter] = useState('')
     const [error, setError] = useState('')
     const [typedLetterArray, setTypedLetterArray] = useState([]);
-    const [inputClass, setInputClass] = useState('');
+    const [animation, setAnimation] = useState('');
 
     useEffect(() => {
         setTypedLetterArray([]);
     }, [randomWord]);
 
-    useEffect(() => {
-        if (isWrongLetter) {
-            setShakeAnimation();
-        }
-    }, [isWrongLetter]);
+    function setShakeAnimation(){
+        setAnimation('animate__animated animate__shakeX');
+        setTimeout(() => {
+            setAnimation('');
+        }, 1000);
+    }
 
-    function handleSubmit (event){
+    function handleSubmit (event){''
         event.preventDefault();
 
         if (/^[A-Z]$/.test(enteredLetter)) {
             
             if (typedLetterArray.includes(enteredLetter)) {
                 setError('The letter has already been entered');
+                setShakeAnimation();
                 return;
             }
             setTypedLetterArray(prevTypedLetters => [...prevTypedLetters, enteredLetter]);
@@ -32,15 +34,15 @@ export default function TypeLetterForm ({onAddLetter, randomWord, isWrongLetter}
 
           } else if(enteredLetter.length === 0){
             setError('The field cannot be empty');
+            setShakeAnimation();
           } else if (enteredLetter.length > 1){
             setError('Only a single letter is allowed');
+            setShakeAnimation();
           }else {
             setError('The character you enter must be a letter');
+            setShakeAnimation();
           }
         }
-    function setShakeAnimation() {
-        setInputClass('animate__animated animate__shakeX');
-    }
 
     return (
         <div className="enter-letter-section">
@@ -51,7 +53,7 @@ export default function TypeLetterForm ({onAddLetter, randomWord, isWrongLetter}
                         value={enteredLetter}
                         onChange={(event) => setEnteredLetter(event.target.value.toUpperCase())}
                         maxLength={1}
-                        className={inputClass}
+                        className={animation}
                     />
                 </form>
             </div>
