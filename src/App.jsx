@@ -26,14 +26,6 @@ function App() {
     startNewGame();
   }, [startNewGame])
 
-  /*function startNewGame(){
-    const newRandomWord = getRandomWord();
-    setRandomWord(newRandomWord);
-    setMaskedWord(maskWord(newRandomWord.word.split('')));
-    setLetters([]);
-    setLives(3);
-  }*/
-
   function handleAddLetter(letter) {
     const newLetter = {char: letter, className: ''};
     
@@ -45,24 +37,14 @@ function App() {
       setLives(prevLives => prevLives - 1);
       isWrongLetter = true;
     }
-    
+
     setLetters(prevLetters => [...prevLetters, newLetter]);
   }
-
-
-
-  /*function maskWord(wordToMask){
-    let anonymizeWord = '';
-    for (let i = 0; i< wordToMask.length; i++) {
-      anonymizeWord += '_';
-    }
-  }*/
 
   function checkLetterInWordAndUpdateMask(letter) {
     if (randomWord.word.includes(letter)) {
       const newMaskedWord = randomWord.word
         .split('')
-        //.map((char) => (letters.map(l => l.char).includes(char) || char === letter ? char : '_'))
         .map((char) => (letters.map(l => l.char).includes(char) || char === letter ? char : (char === ' ' ? ' ' : '_')))
         .join('');
       setMaskedWord(newMaskedWord);
@@ -72,10 +54,6 @@ function App() {
         startNewGame();
     }}
   }
-
-  /*function checkLetterInWord(word){
-    const randomWordArray = word.split('');
-  }*/
 
   function maskWord (wordArray){
       return wordArray.map(char => (char === ' ' ? ' ' : '_')).join('');
