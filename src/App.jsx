@@ -36,7 +36,6 @@ function App() {
 
   function handleAddLetter(letter) {
     const newLetter = {char: letter, className: ''};
-    setLetters(prevLetters => [...prevLetters, newLetter]);
     
     if(randomWord.word.includes(letter)){
       newLetter.className = 'correct';
@@ -46,7 +45,11 @@ function App() {
       setLives(prevLives => prevLives - 1);
       isWrongLetter = true;
     }
+    
+    setLetters(prevLetters => [...prevLetters, newLetter]);
   }
+
+
 
   /*function maskWord(wordToMask){
     let anonymizeWord = '';
