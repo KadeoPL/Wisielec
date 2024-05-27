@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import TypedLetterList from "./components/TypedLettersList";
 import TypeLetterForm from "./components/TypeLetterForm";
 import { getRandomWord } from "./components/WordSelector";
@@ -10,20 +10,29 @@ function App() {
   const [letters, setLetters] = useState([]);
   const [randomWord, setRandomWord] = useState('');
   const [maskedWord, setMaskedWord] = useState('');
-  const [lives, setLives] = useState(3);
+  const [lives, setLives] = useState(5);
   let isWrongLetter = false;
-
-  useEffect(() => {
-    startNewGame();
-  }, [])
-
-  function startNewGame(){
+  
+  const startNewGame = useCallback (() => {
     const newRandomWord = getRandomWord();
     setRandomWord(newRandomWord);
     setMaskedWord(maskWord(newRandomWord.word.split('')));
     setLetters([]);
     setLives(3);
-  }
+  }, []);
+
+
+  useEffect(() => {
+    startNewGame();
+  }, [startNewGame])
+
+  /*function startNewGame(){
+    const newRandomWord = getRandomWord();
+    setRandomWord(newRandomWord);
+    setMaskedWord(maskWord(newRandomWord.word.split('')));
+    setLetters([]);
+    setLives(3);
+  }*/
 
   function handleAddLetter(letter) {
     const newLetter = {char: letter, className: ''};
@@ -74,7 +83,7 @@ function App() {
       alert(`You lose! Try again! The word is: ${randomWord.word}`);
       startNewGame();
     }
-  }, [lives]);
+  }, [lives, startNewGame, randomWord.word]);
   
   return (
     <div className="container">
