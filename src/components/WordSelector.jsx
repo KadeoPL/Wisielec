@@ -12,7 +12,7 @@ const wordsArray = [
     {"word": "Game Console", "hint": "A device for playing video games"},
     {"word": "USB Drive", "hint": "A portable data storage device"},
     {"word": "External Monitor", "hint": "A secondary display device"},
-    {"word": "Wi-Fi Router", "hint": "A device that provides wireless internet"},
+    {"word": "WiFi Router", "hint": "A device that provides wireless internet"},
     {"word": "Graphics Card", "hint": "A hardware component for rendering images"},
     {"word": "Virtual Reality", "hint": "A simulated experience using a headset"},
     {"word": "Hard Drive", "hint": "A device for storing digital data"},

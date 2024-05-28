@@ -31,14 +31,13 @@ function App() {
     
     if(randomWord.word.includes(letter)){
       newLetter.className = 'correct';
-      checkLetterInWordAndUpdateMask(letter);
     } else {
       newLetter.className = 'incorrect';
       setLives(prevLives => prevLives - 1);
       isWrongLetter = true;
     }
-
     setLetters(prevLetters => [...prevLetters, newLetter]);
+    checkLetterInWordAndUpdateMask(letter);
   }
 
   function checkLetterInWordAndUpdateMask(letter) {
