@@ -11,7 +11,12 @@ function App() {
   const [randomWord, setRandomWord] = useState('');
   const [maskedWord, setMaskedWord] = useState('');
   const [lives, setLives] = useState(5);
+  const [buttonHovered, setButtonHovered] = useState(false);
   let isWrongLetter = false;
+
+  const toggleHover = () => {
+    setButtonHovered(!buttonHovered);
+  }
   
   const startNewGame = useCallback (() => {
     const newRandomWord = getRandomWord();
@@ -79,7 +84,12 @@ function App() {
           <TypedLetterList letters={letters}/>
         </div>
         <div className="button-section">
-          <button onClick={startNewGame}>Generate new word</button>
+          <button 
+            onClick={startNewGame}
+            className={buttonHovered ? 'animate__animated animate__pulse' : ''}
+            onMouseEnter={toggleHover}
+            onMouseLeave={toggleHover}
+            >Generate new word</button>
         </div>
         <Lives lives={lives}/>
       </div>
