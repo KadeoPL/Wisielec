@@ -13,7 +13,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(16,25,40,255);
+    /* background: rgba(16,25,40,255);*/
+    background-image: url('./img/body-bg.jpg');
+    background-size: cover;
 }
 
 .typed_letter {
