@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
 
+:root {
+    --cerise: #D13C62ff;
+    --violet-jtc: #623960ff;
+    --giants-orange: #F16434ff;
+    --burnt-sienna: #EB7C5Fff;
+    --delft-blue: 52, 55, 91;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,8 +22,14 @@
     justify-content: center;
     align-items: center;
     /* background: rgba(16,25,40,255);*/
-    background-image: url('./img/body-bg.jpg');
+    background-image: url('./img/body-bg.png');
     background-size: cover;
+}
+
+.game {
+    background-color: rgba(var(--delft-blue), 0.8);
+    padding: 40px;
+    border-radius: 20px;
 }
 
 .typed_letter {
@@ -53,8 +67,8 @@
 input {
     width: 100px;
     height: 60px;
-    background-color: rgba(255, 255, 255, 0);
-    border: 1px solid #312F62;
+    background-color: var(--cerise);
+    border: none;
     border-radius: 10px;
     color: white;
     text-align: center;
@@ -63,8 +77,8 @@ input {
 }
 
 button {
-    background-color: rgb(21,33,49);
-    border: 1px solid rgb(34, 51, 80);
+    background-color: var(--delft-blue);
+    border: 1px solid var(--cerise);
     border-radius: 10px;
     padding: 10px 20px;
     font-size: 1.6em;
