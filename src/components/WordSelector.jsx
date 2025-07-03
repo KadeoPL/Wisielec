@@ -1,30 +1,19 @@
 const wordsArray = [
-    {"word": "Computer", "hint": "An electronic device for processing data"},
-    {"word": "Phone", "hint": "A communication device"},
-    {"word": "Keyboard", "hint": "An input device for typing characters"},
-    {"word": "Mouse", "hint": "An input device for pointing and clicking"},
-    {"word": "Laptop", "hint": "A portable computer"},
-    {"word": "Television", "hint": "An electronic device for watching broadcasts"},
-    {"word": "Headphones", "hint": "An audio output device worn on the head"},
-    {"word": "Tablet", "hint": "A portable touch-screen device"},
-    {"word": "Printer", "hint": "A device for producing hard copies of digital documents"},
-    {"word": "Smartwatch", "hint": "A wearable device with computing capabilities"},
-    {"word": "Game Console", "hint": "A device for playing video games"},
-    {"word": "USB Drive", "hint": "A portable data storage device"},
-    {"word": "External Monitor", "hint": "A secondary display device"},
-    {"word": "WiFi Router", "hint": "A device that provides wireless internet"},
-    {"word": "Graphics Card", "hint": "A hardware component for rendering images"},
-    {"word": "Virtual Reality", "hint": "A simulated experience using a headset"},
-    {"word": "Hard Drive", "hint": "A device for storing digital data"},
-    {"word": "Digital Camera", "hint": "A device for capturing photographs electronically"},
-    {"word": "Smart Speaker", "hint": "A voice-activated audio device"},
-    {"word": "Memory Card", "hint": "A small storage device for data"}
-]
+  { word: "Elephant", hint: "The largest land animal" },
+  { word: "Penguin", hint: "A flightless bird that swims" },
+  { word: "Kangaroo", hint: "An animal that carries babies in a pouch" },
+  { word: "Giraffe", hint: "The tallest animal" },
+  { word: "Crocodile", hint: "A large reptile found in rivers" },
+  { word: "Owl", hint: "A nocturnal bird with excellent vision" },
+  { word: "Dolphin", hint: "An intelligent marine mammal" },
+  { word: "Chameleon", hint: "A lizard that changes color" },
+  { word: "Wolf", hint: "A wild ancestor of the domestic dog" },
+  { word: "Turtle", hint: "A reptile with a hard shell" },
+];
 
-
-    export function getRandomWord(){
-        const randomIndex = Math.floor(Math.random() * wordsArray.length);
-        const randomWord = {... wordsArray[randomIndex]};
-        randomWord.word = randomWord.word.toUpperCase();
-        return randomWord;
-    }
+export function getRandomWord() {
+  const randomIndex = Math.floor(Math.random() * wordsArray.length);
+  const randomWord = { ...wordsArray[randomIndex] };
+  randomWord.word = randomWord.word.toUpperCase();
+  return randomWord;
+}
